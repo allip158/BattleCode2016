@@ -6,8 +6,10 @@ import java.util.Random;
 public class DefaultRobot {
 	
 	class Movement {
-		public void moveTowardsLocation(MapLocation loc){
-			//TODO
+		public void moveTowardsLocation(MapLocation loc) throws GameActionException{
+			if(rc.isCoreReady() && rc.canMove(loc.directionTo(loc))) {
+					rc.move(loc.directionTo(loc));
+			}
 		}
 	}	
 	
